@@ -40,9 +40,9 @@ if(isset($_POST['env_btn'])){
         if (empty($telefono)) {
             $msg_telefono = 'El campo teléfono es obligatorio.';
             $error = true;
-        } elseif (!preg_match('/^[0-9]{10}$/', $telefono)) {
-            //El primer parámetro es la expresión regular. El segundo parámetro es la cadena a evaluar.
-            //Devuelve 1 si hay coincidencia, 0 si no, y FALSE si ocurre un error.
+        } elseif (!is_numeric($telefono)) {
+            $msg_telefono = 'ingrese solo numeros de telefono ';
+        }elseif (strlen($telefono) < 8 or strlen($telefono) > 12){ 
             $msg_telefono = 'El teléfono debe tener 10 dígitos.';
             $error = true;
         }

@@ -11,7 +11,7 @@ $msg_contraseña = '';
 $error = false;
 
 if (isset($_POST['env_boton'])) {
-     if (isset($_POST['nombre'])){
+    if (isset($_POST['nombre'])){
         $nombre=trim($_POST['nombre']);
         if (empty($nombre)) {
             $msg_nombre = 'El campo nombre es obligatorio.';
@@ -31,7 +31,7 @@ if (isset($_POST['env_boton'])) {
             $error = true;
         }
 }
- if (!$error) {
+if (!$error) {
     $sql = "INSERT INTO usuario (nombre, contraseña) VALUES (?, ?)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$nombre, $contraseña]);
